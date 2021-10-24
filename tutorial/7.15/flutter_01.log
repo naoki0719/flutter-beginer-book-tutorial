@@ -1,0 +1,92 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter pub get
+
+## exception
+
+FileSystemException: FileSystemException: Cannot open file, path = '/Users/naoki/docs/flutter-beginer-book-tutorial/tutorial/7.12 copy/.flutter-plugins' (OS Error: No such file or directory, errno = 2)
+
+```
+#0      _File.throwIfError (dart:io/file_impl.dart:635:7)
+#1      _File.openSync (dart:io/file_impl.dart:479:5)
+#2      _File.writeAsBytesSync (dart:io/file_impl.dart:604:31)
+#3      _File.writeAsStringSync (dart:io/file_impl.dart:628:5)
+#4      ForwardingFile.writeAsStringSync (package:file/src/forwarding/forwarding_file.dart:147:16)
+#5      ErrorHandlingFile.writeAsStringSync.<anonymous closure> (package:flutter_tools/src/base/error_handling_io.dart:271:22)
+#6      _runSync (package:flutter_tools/src/base/error_handling_io.dart:597:14)
+#7      ErrorHandlingFile.writeAsStringSync (package:flutter_tools/src/base/error_handling_io.dart:270:5)
+#8      _writeFlutterPluginsListLegacy (package:flutter_tools/src/flutter_plugins.dart:248:15)
+#9      refreshPluginsList (package:flutter_tools/src/flutter_plugins.dart:1034:30)
+<asynchronous suspension>
+#10     FlutterProject.ensureReadyForPlatformSpecificTooling (package:flutter_tools/src/project.dart:316:5)
+<asynchronous suspension>
+#11     PackagesGetCommand.runCommand (package:flutter_tools/src/commands/packages.dart:173:5)
+<asynchronous suspension>
+#12     FlutterCommand.run.<anonymous closure> (package:flutter_tools/src/runner/flutter_command.dart:1125:27)
+<asynchronous suspension>
+#13     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:150:19)
+<asynchronous suspension>
+#14     CommandRunner.runCommand (package:args/command_runner.dart:209:13)
+<asynchronous suspension>
+#15     FlutterCommandRunner.runCommand.<anonymous closure> (package:flutter_tools/src/runner/flutter_command_runner.dart:288:9)
+<asynchronous suspension>
+#16     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:150:19)
+<asynchronous suspension>
+#17     FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:236:5)
+<asynchronous suspension>
+#18     run.<anonymous closure>.<anonymous closure> (package:flutter_tools/runner.dart:62:9)
+<asynchronous suspension>
+#19     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:150:19)
+<asynchronous suspension>
+#20     main (package:flutter_tools/executable.dart:92:3)
+<asynchronous suspension>
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel stable, 2.5.3, on macOS 11.6 20G165 darwin-x64, locale ja-JP)
+    • Flutter version 2.5.3 at /Users/naoki/.dev/flutter
+    • Upstream repository https://github.com/flutter/flutter.git
+    • Framework revision 18116933e7 (6 days ago), 2021-10-15 10:46:35 -0700
+    • Engine revision d3ea636dc5
+    • Dart version 2.14.4
+
+[✓] Android toolchain - develop for Android devices (Android SDK version 30.0.3)
+    • Android SDK at /Users/naoki/Library/Android/sdk
+    • Platform android-30, build-tools 30.0.3
+    • Java binary at: /Applications/Android Studio.app/Contents/jre/jdk/Contents/Home/bin/java
+    • Java version OpenJDK Runtime Environment (build 11.0.8+10-b944.6916264)
+    • All Android licenses accepted.
+
+[✓] Xcode - develop for iOS and macOS
+    • Xcode at /Applications/Xcode.app/Contents/Developer
+    • Xcode 13.0, Build version 13A233
+    • CocoaPods version 1.10.1
+
+[✓] Android Studio (version 4.2)
+    • Android Studio at /Applications/Android Studio.app/Contents
+    • Flutter plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/9212-flutter
+    • Dart plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/6351-dart
+    • Java version OpenJDK Runtime Environment (build 11.0.8+10-b944.6916264)
+
+[✓] VS Code (version 1.61.0)
+    • VS Code at /Applications/Visual Studio Code.app/Contents
+    • Flutter extension version 3.27.0
+
+[✓] VS Code (version 1.61.0-insider)
+    • VS Code at /Applications/Visual Studio Code - Insiders.app/Contents
+    • Flutter extension version 3.26.0
+
+[✓] Connected device (1 available)
+    • iPhone 13 (mobile) • 1F2C18C1-256F-4EC9-B115-1B32928C361A • ios • com.apple.CoreSimulator.SimRuntime.iOS-15-0 (simulator)
+    ! Error: iPhone Test is not connected. Xcode will continue when iPhone Test is connected. (code -13)
+    ! Error: naokiのiPhone is not connected. Xcode will continue when naokiのiPhone is connected. (code -13)
+
+• No issues found!
+```
