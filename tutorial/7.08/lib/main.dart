@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // 仮のデータ(スタブ)を用意します
-    final _todos = List.generate(
+    final todos = List.generate(
       10,
       (index) => 'Todo ${index + 1}',
     );
@@ -32,15 +32,15 @@ class HomeScreen extends StatelessWidget {
       ),
       body: ListView.builder(
         itemBuilder: (context, index) => ListTile(
-          title: Text(_todos[index]),
+          title: Text(todos[index]),
         ),
-        itemCount: _todos.length,
+        itemCount: todos.length,
       ),
       // 新しく追加します
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
-          _todos.add('ToDo ${_todos.length + 1}');
+          todos.add('ToDo ${todos.length + 1}');
         },
       ),
     );
