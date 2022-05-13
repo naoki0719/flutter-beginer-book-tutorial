@@ -10,13 +10,14 @@ class ToDoListScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // ToDoListStateに変更があるとリビルドされます
-    final _todos = ref.watch(todoListProvider);
+    final todos = ref.watch(todoListProvider);
     // ToDoListStateのメソッドを使えるようにします
-    final _todoNotifier = ref.read(todoListProvider.notifier);
+    final todoNotifier = ref.read(todoListProvider.notifier);
 
     // buildが呼ばれてからToDoリストを読み込みます
     useEffect(() {
-      _todoNotifier.find();
+      todoNotifier.find();
+      return;
     }, []);
 
     return Scaffold(
@@ -27,14 +28,14 @@ class ToDoListScreen extends HookConsumerWidget {
         // ListTileからCheckedListTileに変更します
         itemBuilder: (context, index) => CheckboxListTile(
           onChanged: (checked) {
-            _todoNotifier.toggle(_todos[index]);
+            todoNotifier.toggle(todos[index]);
           },
-          value: _todos[index].value.archived,
+          value: todos[index].value.archived,
           title: Text(
-            _todos[index].value.title,
+            todos[index].value.title,
           ),
         ),
-        itemCount: _todos.length,
+        itemCount: todos.length,
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
