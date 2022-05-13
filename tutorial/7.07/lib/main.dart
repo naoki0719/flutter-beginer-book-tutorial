@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // 仮のデータ(スタブ)を用意します
-    final _todos = List.generate(
+    final todos = List.generate(
       10,
       (index) => 'Todo ${index + 1}',
     );
@@ -32,9 +32,9 @@ class HomeScreen extends StatelessWidget {
       ),
       body: ListView.builder(
         itemBuilder: (context, index) => ListTile(
-          title: Text(_todos[index]),
+          title: Text(todos[index]),
         ),
-        itemCount: _todos.length,
+        itemCount: todos.length,
       ),
     );
   }
