@@ -21,7 +21,7 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
@@ -43,14 +43,14 @@ class _HomeScreenState extends State<HomeScreen> {
           onChanged: (checked) {
             setState(() {
               // 完了状態を反転させます
-              final original = _todos[index];
-              _todos[index] = original.copyWith(
+              final original = todos[index];
+              todos[index] = original.copyWith(
                 archived: !original.archived,
               );
             });
           },
-          value: _todos[index].archived,
-          title: Text(_todos[index].title),
+          value: todos[index].archived,
+          title: Text(todos[index].title),
         ),
         itemCount: _todos.length,
       ),
