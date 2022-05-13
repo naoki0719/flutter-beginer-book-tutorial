@@ -21,12 +21,12 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
   // 文字列からToDoインスタンスの配列に変更します
-  final _todos = List.generate(
+  final todos = List.generate(
     10,
     (index) => ToDo(title: 'ToDo ${index + 1}'),
   );
@@ -43,21 +43,21 @@ class _HomeScreenState extends State<HomeScreen> {
           onChanged: (checked) {
             setState(() {
               // 完了状態を反転させます
-              _todos[index].archived = !_todos[index].archived;
+              todos[index].archived = !todos[index].archived;
             });
           },
-          value: _todos[index].archived,
-          title: Text(_todos[index].title),
+          value: todos[index].archived,
+          title: Text(todos[index].title),
         ),
-        itemCount: _todos.length,
+        itemCount: todos.length,
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
           setState(() {
             // ToDoインスタンスを追加するように変更します
-            _todos.add(
-              ToDo(title: 'ToDo ${_todos.length + 1}'),
+            todos.add(
+              ToDo(title: 'ToDo ${todos.length + 1}'),
             );
           });
         },
