@@ -20,12 +20,12 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
   // buildメソッドにあった変数を移動します
-  final _todos = List.generate(10, (index) => 'Todo ${index + 1}');
+  final todos = List.generate(10, (index) => 'Todo ${index + 1}');
 
   @override
   Widget build(BuildContext context) {
@@ -35,16 +35,16 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: ListView.builder(
         itemBuilder: (context, index) => ListTile(
-          title: Text(_todos[index]),
+          title: Text(todos[index]),
         ),
-        itemCount: _todos.length,
+        itemCount: todos.length,
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
           // 変更します
           setState(() {
-            _todos.add('ToDo ${_todos.length + 1}');
+            todos.add('ToDo ${todos.length + 1}');
           });
         },
       ),
