@@ -12,6 +12,6 @@ final databaseProvider = Provider<DbHelper>(
 final todoListProvider = StateNotifierProvider<ToDoListState, List<ToDoRecord>>(
   (ref) => ToDoListState(
     [],
-    ref.read(databaseProvider),
+    ref.watch(databaseProvider),
   ),
 );

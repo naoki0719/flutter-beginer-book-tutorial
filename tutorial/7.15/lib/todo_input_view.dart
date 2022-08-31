@@ -29,7 +29,7 @@ class ToDoInputView extends HookConsumerWidget {
       text: record?.value.title,
     );
 
-    final _todoListNotifier = ref.read(
+    final _todoListNotifier = ref.watch(
       todoListProvider.notifier,
     );
 

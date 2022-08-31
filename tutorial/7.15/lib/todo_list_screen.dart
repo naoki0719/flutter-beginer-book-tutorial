@@ -12,7 +12,7 @@ class ToDoListScreen extends HookConsumerWidget {
     // ToDoListStateに変更があるとリビルドされます
     final todos = ref.watch(todoListProvider);
     // ToDoListStateのメソッドを使えるようにします
-    final todoNotifier = ref.read(todoListProvider.notifier);
+    final todoNotifier = ref.watch(todoListProvider.notifier);
 
     // buildが呼ばれてからToDoリストを読み込みます
     useEffect(() {
